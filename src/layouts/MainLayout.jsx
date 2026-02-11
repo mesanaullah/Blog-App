@@ -14,9 +14,10 @@ const MainLayout = () => {
         <Outlet />
         <TextToSpeech />
         {/* <DisabledButton /> */}
+        {/* <Footer /> */}
       </div>
-      <FloatingActionButton />
       <Footer />
+      <FloatingActionButton />
       {/* <MagnifyingGlass /> */}
     </>
   );

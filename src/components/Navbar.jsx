@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoHomeSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, UserButton, useAuth } from "@clerk/clerk-react";
 import { FiLogIn } from "react-icons/fi";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { MdAccountCircle } from "react-icons/md";
@@ -12,6 +12,11 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    // const { getToken } = useAuth()
+    // useEffect(() => {
+    //     getToken().then(token => console.log(token))
+    // }, [])
 
     return (
         <div className="w-full h-16 md:h-20 flex items-center justify-between border-b border-[rgb(230,232,234)]">
@@ -38,10 +43,10 @@ const Navbar = () => {
                     }`} >
                     <Link to="/" className=''><IoHomeSharp className='mt-0.5' /> Home</Link>
                     <Link to="/">World</Link>
-                    <Link to="/">Politics</Link>
-                    <Link to="/test">Business</Link>
-                    <Link to="/">Sports</Link>
-                    <Link to="/">Entertainment</Link>
+                    <Link to="/posts?sort=politics">Politics</Link>
+                    <Link to="/posts?sort=business">Business</Link>
+                    <Link to="/posts?sort=sports">Sports</Link>
+                    <Link to="/posts?sort=entertainment">Entertainment</Link>
                     <Link to="/login">
                         <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white hover:bg-[#4361ee]">
                             LogIn</button>
@@ -67,10 +72,10 @@ const Navbar = () => {
                         <li><Link to="/test" className="block px-4 py-2 hover:text-blue-600">UAE</Link></li>
                     </ul>
                 </li>
-                <Link to="/test">Politics</Link>
-                <Link to="/test">Business</Link>
-                <Link to="/test">Sports</Link>
-                <Link to="/test">Entertainment</Link>
+                <Link to="/posts?sort=politics">Politics</Link>
+                <Link to="/posts?sort=business">Business</Link>
+                <Link to="/posts?sort=sports">Sports</Link>
+                <Link to="/posts?sort=entertainment">Entertainment</Link>
 
                 {/* <li className="relative list-none">
                     <button

@@ -71,6 +71,9 @@ const FloatingActionButton = () => {
         }
     };
 
+
+
+
     const handleClickOutside = (event) => {
         if (
             containerRef.current &&
@@ -109,7 +112,82 @@ const FloatingActionButton = () => {
     }, [magnifierActive]);
 
     return (
-        <div ref={containerRef} className="fixed right-4 bottom-6 flex flex-col items-end z-50">
+        // <div ref={containerRef} className="fixed right-4 bottom-6 flex flex-col items-end z-50">
+        //     {/* Zoom Toggle Button */}
+        //     <motion.div
+        //         initial={{ opacity: 0, y: 10 }}
+        //         animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : 10 }}
+        //         className="mb-2"
+        //     >
+        //         <button
+        //             onClick={() => setMagnifierActive(!magnifierActive)}
+        //             className="bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 transition-colors"
+        //             aria-label={magnifierActive ? "Close magnifier" : "Open magnifier"}
+        //         >
+        //             <FaSearchPlus className="w-6 h-6" />
+        //         </button>
+        //     </motion.div>
+
+        //     {/* Magnifier Lens */}
+        //     {magnifierActive && (
+        //         <div
+        //             ref={magnifierRef}
+        //             className="pointer-events-none fixed w-[150px] h-[150px] rounded-full border-2 border-blue-500 overflow-hidden bg-white/90 backdrop-blur-sm shadow-xl"
+        //             style={{
+        //                 left: '0',
+        //                 top: '0',
+        //                 transform: 'translate(-9999px, -9999px)' // Initial off-screen position
+        //             }}
+        //         >
+        //             <div
+        //                 ref={contentRef}
+        //                 className="origin-top-left inline-block will-change-transform"
+        //                 style={{
+        //                     transform: `scale(${zoomLevel})`,
+        //                     pointerEvents: 'none',
+        //                     userSelect: 'none'
+        //                 }}
+        //             />
+        //         </div>
+        //     )}
+
+        //     {/* Dark Mode Button */}
+        //     <motion.div
+        //         initial={{ opacity: 0, y: 10 }}
+        //         animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : 10 }}
+        //         transition={{ duration: 0.3, delay: 0.1 }}
+        //         className="mb-2"
+        //     >
+        //         <button
+        //             onClick={() => setIsDarkMode(!isDarkMode)}
+        //             className="bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 transition-colors"
+        //             aria-label={isDarkMode ? "Disable dark mode" : "Enable dark mode"}
+        //         >
+        //             {isDarkMode ? (
+        //                 <FaSun className="w-6 h-6" />
+        //             ) : (
+        //                 <FaMoon className="w-6 h-6" />
+        //             )}
+        //         </button>
+        //     </motion.div>
+
+        //     {/* Main Floating Button */}
+        //     <button
+        //         onClick={() => setIsOpen(!isOpen)}
+        //         className="bg-blue-800 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors"
+        //     >
+        //         <MdAccessible className="w-6 h-6" />
+        //     </button>
+        // </div>
+        <div
+            ref={containerRef}
+            className="fixed right-4 bottom-6 flex flex-col items-end z-50"
+            // className="fixed right-0 top-1/2 -translate-y-1/2 md:right-4 md:top-auto md:bottom-6 md:translate-y-0 flex flex-col items-end z-50"
+            style={{
+                zIndex: 10000, // Ensure high z-index
+                pointerEvents: "auto", // Ensure clickable
+            }}
+        >
             {/* Zoom Toggle Button */}
             <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -131,9 +209,9 @@ const FloatingActionButton = () => {
                     ref={magnifierRef}
                     className="pointer-events-none fixed w-[150px] h-[150px] rounded-full border-2 border-blue-500 overflow-hidden bg-white/90 backdrop-blur-sm shadow-xl"
                     style={{
-                        left: '0',
-                        top: '0',
-                        transform: 'translate(-9999px, -9999px)' // Initial off-screen position
+                        left: "0",
+                        top: "0",
+                        transform: "translate(-9999px, -9999px)", // Initial off-screen position
                     }}
                 >
                     <div
@@ -141,8 +219,8 @@ const FloatingActionButton = () => {
                         className="origin-top-left inline-block will-change-transform"
                         style={{
                             transform: `scale(${zoomLevel})`,
-                            pointerEvents: 'none',
-                            userSelect: 'none'
+                            pointerEvents: "none",
+                            userSelect: "none",
                         }}
                     />
                 </div>

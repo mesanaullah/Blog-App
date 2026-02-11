@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# ENV
+.env
+.env.*         # any environment files
+*.local
+
+# Logs
+*.log
+.DS_Store
+Thumbs.db
+receipts
+uploads
+
+# Build
+dist/
+build/
+.vite/
+
+# Temp & PDFs
+temp/
+receipts/
+*.pdf
+# env files
+
+backend/.env
+frontend/.env
+admin/.env
