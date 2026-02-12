@@ -57,6 +57,11 @@ app.use(function (req, res, next) {
 //     res.status(200).json("content")
 // });
 
+//api status check
+app.get("/", (req, res) => {
+  res.json({ message: "API is running" });
+});
+
 
 app.use("/users", userRouter);
 app.use("/posts", postRouter);
