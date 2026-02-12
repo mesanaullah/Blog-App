@@ -17,8 +17,10 @@ const app = express();
 
 // app.use(cors(process.env.CLIENT_URL));
 app.use(cors({
-  origin: process.env.CLIENT_URL
+  origin: process.env.CLIENT_URL,
+  credentials: true
 }));
+
 app.use(clerkMiddleware());
 app.use("/webhooks", webhookRouter);
 app.use(express.json())
@@ -79,7 +81,5 @@ app.listen(3000, () => {
 // node index.js (run server)
 // node --watch index.js (update live changes)
 // node --env-file .env --watch index.js
-
-
 
 
